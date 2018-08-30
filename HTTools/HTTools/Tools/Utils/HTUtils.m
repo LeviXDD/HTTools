@@ -164,55 +164,6 @@
     return string;
 }
 
-+ (NSString *)AMPMFromRongweiTime:(NSString *)fromTime{
-    NSDateFormatter *dateFormatter3 = [[NSDateFormatter alloc] init];
-    [dateFormatter3 setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter3 setDateFormat:yyyy_MM_dd_HH_mm_ss];
-    NSDate *date1 = [dateFormatter3 dateFromString:fromTime];
-    NSLog(@"date1 : %@", date1); // Here returning (null)**
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
-    [dateFormatter setDateFormat:yyyy_MM_dd_A_mm_ss];
-    return  [dateFormatter stringFromDate:date1];
-}
-
-#pragma mark yyyy-MM-dd HH:mm:ss -> yyyy-MM-dd
-+ (NSString *)timeFormateFromDetailsToNomalWithString:(NSString *)detailsStr{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:yyyy_MM_dd_HH_mm_ss];
-    NSDate *currentDate = [dateFormatter dateFromString:detailsStr];
-    
-    [dateFormatter setDateFormat:yyyy_MM_dd];
-    return  [dateFormatter stringFromDate:currentDate];
-
-}
-#pragma mark ss->hh:mm:ss
-+ (NSString *)getMMSSFromSS:(NSString *)totalTime{
-    
-    NSInteger seconds = [totalTime integerValue];
-    
-    //format of hour
-    NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
-    //format of minute
-    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
-    //format of second
-    NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
-    if ([str_hour integerValue] > 1) {
-//        return @"";   //小于一小时返回空字符串
-    }
-    //format of time
-    
-    NSString *format_time = [NSString string];
-    if ([str_hour integerValue] == 0) {
-        format_time = [NSString stringWithFormat:@"%@:%@",str_minute,str_second];
-    } else {
-        format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
-    }
-    return format_time;
-    
-}
-
 #pragma mark NSDate转毫秒时间戳
 + (NSInteger)getDateTimeTOMilliSeconds:(NSDate *)datetime
 {

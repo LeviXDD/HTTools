@@ -70,11 +70,6 @@
 /*date -> string*/
 + (NSString*)dateToString:(NSDate*)date format:(NSString*)format;
 
-+ (NSString *)AMPMFromRongweiTime:(NSString *)fromTime;
-
-#pragma mark ss->hh:mm:ss
-+ (NSString *)getMMSSFromSS:(NSString *)totalTime;
-
 #pragma mark NSDate转毫秒时间戳
 + (NSInteger)getDateTimeTOMilliSeconds:(NSDate *)datetime;
 
@@ -86,8 +81,6 @@
 
 #pragma mark 时间差计算
 + (NSDateComponents*)timeDifferenceBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
-
-+ (NSString *)timeFormateFromDetailsToNomalWithString:(NSString *)detailsStr;
 
 /**
  *  将若干view等宽布局于容器containerView中
